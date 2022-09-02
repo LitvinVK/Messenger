@@ -1,0 +1,96 @@
+.userForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+    margin-bottom: 10px;
+    gap: 5px;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    color: red;
+}
+
+.success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    color: green;
+}
+
+.login_input {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.login {
+    text-align: center;
+}
+
+.password_input {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.enter_buttons {
+    display: flex;
+    justify-content:space-around;
+    width: 250px;
+}
+
+.chat_users {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.messageForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.chat_window {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 70vh;
+    width: 80vw;
+    border: 1px solid black;
+}
+
+.message_submit {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    padding: 3px;
+}
+
+.users {
+    width: 30vh;
+    height: 70vh;
+    border: 1px solid black;
+}
+
+.users_header {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.users_online {
+    text-align: center;
+}
+
+.chat {
+    overflow: auto;
+}

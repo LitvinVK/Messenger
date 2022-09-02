@@ -1,0 +1,19 @@
+{
+  "name": "messenger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "process": "^0.11.10",
+    "uuid": "^8.3.2",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.10.0",
+    "ws": "^8.8.1"
+  }
+}

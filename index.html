@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login_password">
+        <form class="userForm" id="userForm">
+            <div class="login_input">
+                <div class="login">Логин</div>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="password_input">
+                <div class="password">Пароль</div>
+                <input type="text" name="password" id="password">
+            </div>
+            <div class="enter_buttons">
+                <button class="enter_button" id="submit_enter">войти</button>
+                <button class="register_button" id="submit_register">зарегистрироваться</button>
+            </div>
+        </form>
+    </div>
+    <div class="chat_users">
+        <form class="messageForm" id="messageForm">
+            <div class="chat_window">
+                <div class="chat"></div>
+                <div class="message_submit">
+                    <input type="text" name="message" id="message">
+                    <input type="submit" value="отправить" id="submit_message">
+                </div>
+            </div>
+        </form>
+        <div class="users">
+            <div class="users_header">Онлайн</div>
+            <div class="users_online"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
