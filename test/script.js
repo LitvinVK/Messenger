@@ -17,7 +17,6 @@ const register = document.querySelector('#submit_register');
 const receivers = document.querySelector('.receivers');
 const receiversChat = document.querySelector('.receivers_chat');
 const allReceivers = document.querySelector('.all_receivers');
-
 let wss;
 const usersArray = [];
 
@@ -68,10 +67,6 @@ ws.onmessage = (message) => {
             addMessage(loginPassword, 'success', 'Вы успешно зарегистрированы', 3000);
         } else if (item.action === 'isNotRegistered') {
             addMessage(loginPassword, 'error', 'Неверный логин или пароль', 3000);
-        } else if (item.action === 'loginIsShort') {
-            addMessage(loginPassword, 'error', 'Логин должен быть длиннее 2 символов', 3000);
-        } else if (item.action === 'passwordIsShort') {
-            addMessage(loginPassword, 'error', 'Пароль должен быть длиннее 7 символов', 3000);
         } else if (item.action === 'enter' && wss === ws) {
             inputName.disabled = true;
             inputPassword.disabled = true;
@@ -272,7 +267,7 @@ const sendMessage = (e) => {
     }
     ws.send(JSON.stringify({name, message, receiver}));
     receiversChat.scrollHeight = 0;
-    document.querySelector('#message').value = '';
+    // document.querySelector('#message').value = '';
 };
 
 const enterUser = (e) => {

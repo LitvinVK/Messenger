@@ -34,13 +34,7 @@ const app = uWS.App({
         }
       });
 
-      if (!isBusy && name.length < 3) {
-        const action = 'loginIsShort';
-        ws.send(JSON.stringify([{action}]));
-      } else if (!isBusy && password.length < 8) {
-        const action = 'passwordIsShort';
-        ws.send(JSON.stringify([{action}]));
-       } else if (!isBusy) {
+      if (!isBusy) {
         wss.push(ws);
         passwords.push({name, password});
         const action = 'registerSuccess';
@@ -78,18 +72,24 @@ const app = uWS.App({
         }
       });
 
-      messagesToSend.push({name, message, action, names, receiver});
-
-      setInterval(() => {
-        if (messagesToSend.length != 0) {
-          for (const id in clients) {
-            if (wss.includes(clients[id])) {
-                clients[id].send(JSON.stringify(messagesToSend));
-            }
-          }
+      for (const id in clients) {
+        if (wss.includes(clients[id])) {
+            clients[id].send(JSON.stringify([{name, message, action, names, receiver}]));
         }
-        messagesToSend = [];
-      }, 2000);
+      }
+
+      // messagesToSend.push({name, message, action, names, receiver});
+
+      // setInterval(() => {
+      //   if (messagesToSend.length != 0) {
+      //     for (const id in clients) {
+      //       if (wss.includes(clients[id])) {
+      //           clients[id].send(JSON.stringify(messagesToSend));
+      //       }
+      //     }
+      //   }
+      //   messagesToSend = [];
+      // }, 2000);
     }
   },
   close: (ws) => {
