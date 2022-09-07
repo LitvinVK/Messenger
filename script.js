@@ -9,6 +9,7 @@ inputMessage.disabled = 'true';
 submitMessae.disabled = 'true';
 
 const loginPassword = document.querySelector('.login_password');
+console.log(typeof(loginPassword));
 const userForm = document.querySelector('#userForm');
 const inputName = document.querySelector('#name');
 const inputPassword = document.querySelector('#password');
@@ -19,6 +20,7 @@ const receiversChat = document.querySelector('.receivers_chat');
 const allReceivers = document.querySelector('.all_receivers');
 
 let wss;
+let isFirst = true;
 const usersArray = [];
 
 function addMessage(parentClassName, status, message, timeout) {

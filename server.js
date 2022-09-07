@@ -9,6 +9,7 @@ const names = [];
 const passwords = [];
 const wss = [];
 let messagesToSend = [];
+let isFirst = true;
 
 const app = uWS.App({
   key_file_name: 'misc/key.pem',
@@ -25,6 +26,7 @@ const app = uWS.App({
   },
   message: (ws, rawMessage) => {
     const {name, password, message, action, receiver} = JSON.parse(String.fromCharCode.apply(null, new Uint8Array(rawMessage)));
+    
     if (action === 'register') {
       let isBusy = false;
 
@@ -80,16 +82,19 @@ const app = uWS.App({
 
       messagesToSend.push({name, message, action, names, receiver});
 
-      setInterval(() => {
-        if (messagesToSend.length != 0) {
-          for (const id in clients) {
-            if (wss.includes(clients[id])) {
-                clients[id].send(JSON.stringify(messagesToSend));
+      if (isFirst) {
+        setInterval(() => {
+          if (messagesToSend.length != 0) {
+            for (const id in clients) {
+              if (wss.includes(clients[id])) {
+                  clients[id].send(JSON.stringify(messagesToSend));
+              }
             }
           }
-        }
-        messagesToSend = [];
-      }, 2000);
+          messagesToSend = [];
+        }, 2000);
+        isFirst = false;
+      }
     }
   },
   close: (ws) => {
